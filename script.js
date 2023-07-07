@@ -1,18 +1,20 @@
-function book(title, author, pages, readOrNot){
+let myLibrary = []
+
+function Book(title, author, pages, readingStatus){
     this.title = title
     this.author = author
     this.pages = pages
-    this.readOrNot = readOrNot
-
-    this.info = function() {
-        return `${title}, by ${author}, ${pages}, ${readOrNot}`
+    this.readingStatus = readingStatus
+    
     }
+
+function addBookToLibrary(book){
+    myLibrary.push(book)
 }
 
-const theWitcher = new book('The Witcher: The last wish','Andrzej Sapkowski', '288 pages', 'not read yet' )
+const theWitcher = new Book('The Witcher: The last wish','Andrzej Sapkowski', '288 pages', 'not read' )
 
-console.log(theWitcher.info())
+const deepWork = new Book('Deep Work', 'Cal Newport', '287 pages', 'read')
 
-const deepWork = new book('Deep Work', 'Cal Newport', '287 pages', 'read')
-
-console.log(deepWork.info())
+addBookToLibrary(theWitcher)
+addBookToLibrary(deepWork)
