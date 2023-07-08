@@ -18,3 +18,8 @@ const deepWork = new Book('Deep Work', 'Cal Newport', '287 pages', 'read')
 
 addBookToLibrary(theWitcher)
 addBookToLibrary(deepWork)
+
+let bookCard = document.createElement("div")
+bookCard.setAttribute("class", "bookCardStyling")
+bookCard.textContent = Object.values(deepWork)
+document.body.appendChild(bookCard)
