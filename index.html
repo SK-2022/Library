@@ -7,37 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="book-card"></div>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <img src="#" alt="Image of Library Icon">
+    <header class="header-login">
+        <div class="logo-text-container">
+            <img class="logo" src="#" alt="Library-book-image">
+            <div class="logo-text">Library</div>
         </div>
-        <form action="#" method="post">
-            <label for="book-title">
-                <input type="text" name="book-title" id="book-title">
-            </label>
-            <label for="book-author">
-                <input type="text" name="book-author" id="book-author">
-            </label>
-            <input type="number" name="total-pages" id="total-pages">
-            <label for="checkbox">
-                <input type="checkbox" id="checkbox">
-            </label>
-        </form>
-    </div>
-    <main class="card-container">
-        <section class="book-statistics-bar">
-            <div>Books read:</div>
-            <div>Books not read:</div>
-            <div>Total Books:</div>
-            <div>Delete All Books</div>
-        </section>
-        <div class="book-card">1</div>
-        <div class="book-card">2</div>
-        <div class="book-card">3</div>
-        <div class="book-card">4</div>
-        <div class="book-card">5</div>
-        <div class="book-card">6</div>
+        <div class="login-button">
+            <!-- Use firebase for this to allow users to store their data on the backend-->
+            <form action="#" method="post">
+                <!-- input other login field items if necessary-->
+                <button type="submit">login</button>
+            </form>
+        </div>
+    </header>
+    <main class="book-container">
+        <button class="add-book" type="submit"></button>
     </main>
     <script src="script.js"></script>
 </body>
