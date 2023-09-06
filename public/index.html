@@ -15,7 +15,7 @@
             <div class="logo-text">Tree of Knowledge</div>
         </div>
         <div class="login-button">
-            <!-- Use firebase for this to allow users to store their data on the backend-->
+            <!-- Use firebase later for this to allow users to store their data on the backend-->
             <form action="#" method="post">
                 <!-- input other login field items if necessary-->
                 <button class="login-button" type="submit">Log in</button>
@@ -25,9 +25,28 @@
     <div class="button-container">
         <button class="add-book-button" type="submit">+ Add book</button>
     </div>
-    <main class="book-card-container">
-        
+
+    <!--Book container-->
+    <main class="book-card-parent-container">
+        <div class="book-card-container">
+            <div class="book-card">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt dolorem atque necessitatibus inventore voluptatem ad reiciendis maxime quod, perspiciatis non modi cupiditate consequatur. Consectetur suscipit enim, molestias blanditiis fugiat doloribus tenetur officia, quis deserunt, ab nesciunt! Velit odit totam est, fugiat, numquam eligendi iste cum aliquid optio inventore temporibus reprehenderit molestias odio tempora necessitatibus sequi voluptate?</div>
+            <div class="book-card">this</div>
+            <div class="book-card">is</div>
+            <div class="book-card">cool</div>
+        </div>
     </main>
+    <!--Modal dialog containing a form-->
+    <div class="book-detail-pop-up">
+        <!--No action on this form for now. Add it later when you develop the backend-->
+        <form class="book-form">
+            <div>Add new book</div>
+            <input type="text" placeholder="Title">
+            <input type="text" placeholder="Author">
+            <input type="text" placeholder="Pages">
+        </form>
+    </div>
+
+
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
