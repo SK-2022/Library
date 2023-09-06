@@ -78,14 +78,34 @@ body {
 	font-weight: 600;
 }
 
-.book-container{
-	display: grid;
-	grid-template-areas: ;
+.login-button{
+	font-size: 1rem;
+	height: 40px;
+	width: 70px;
+	border: none;
+	border-radius: 8px;
+	outline: none;
+	transition: background-color 0.3s ease; /* Add a smooth transition on background-color property */
+}
+.login-button:hover{
+	background-color: #d1d5db;
 }
 
-.add-book{
+.book-container{
+	display: grid;
+	justify-content: center;
+}
+
+.add-book-button{
+	font-size: 1rem;
 	height: 40px;
 	width: 100px;
 	margin: 10px;
+	border: none;
+	border-radius: 8px;
+	transition: background-color 0.3s ease;
 }
 
+.add-book-button:hover{
+	background-color: #d1d5db;
+}
