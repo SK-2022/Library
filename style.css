@@ -88,7 +88,9 @@ body {
 	border-radius: 8px;
 	outline: none;
 	transition: background-color 0.3s ease; /* Add a smooth transition on background-color property */
+	cursor: pointer;
 }
+
 .login-button:hover{
 	background-color: #d1d5db;
 }
@@ -108,6 +110,7 @@ body {
 	border: none;
 	border-radius: 8px;
 	transition: background-color 0.3s ease;
+	cursor: pointer;
 }
 
 .add-book-button:hover{
@@ -135,6 +138,22 @@ body {
 	height: 300px;
 }
 
+.book-form{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	padding: 20px;
+}
+.book-detail-pop-up{
+	display: flex;
+	justify-content: center;
+}
+
+.form-heading{
+	font-weight:600;
+}
+
 .book-form input[type='text']{
 	background-color: #FFFFFF;
     border: 1px solid #D6D9DC;
@@ -143,4 +162,9 @@ body {
     padding: 7px;
     font-size: 14px;
 	outline: none;
+}
+
+.input-box span{
+	position: absolute;
+	left: 400px;
 }
