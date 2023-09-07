@@ -78,7 +78,7 @@ body {
 	font-weight: 600;
 }
 
-.login-button{
+.login-button, .book-submit-button{
 	font-size: 1rem;
 	font-family: 'Roboto Flex', sans-serif;
 	font-weight: 500;
@@ -142,6 +142,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	gap: 20px;
 	padding: 20px;
 }
@@ -154,7 +155,8 @@ body {
 	font-weight:600;
 }
 
-.book-form input[type='text']{
+.book-form input[type='text'],
+.book-form input[type='number']{
 	background-color: #FFFFFF;
     border: 1px solid #D6D9DC;
     border-radius: 3px;
@@ -164,7 +166,17 @@ body {
 	outline: none;
 }
 
-.input-box span{
-	position: absolute;
-	left: 400px;
+.input-box label{
+	position: relative;
+	right: 160px;
+}
+
+form .book-submit-button{
+	background-color: #6563FF;
+	color:#FFFFFF;
+}
+
+form .book-submit-button:hover{
+	background-color: #6d28d9;
+	color:#FFFFFF;
 }
