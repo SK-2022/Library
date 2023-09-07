@@ -146,9 +146,15 @@ body {
 	gap: 20px;
 	padding: 20px;
 }
-.book-detail-pop-up{
-	display: flex;
-	justify-content: center;
+
+/* dialog.dialog-box{
+	display: none;
+} */
+
+.dialog-box{
+	position: fixed;
+	border-radius: 6px;
+	border: none;
 }
 
 .form-heading{
