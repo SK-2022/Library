@@ -155,6 +155,7 @@ body {
 	position: fixed;
 	border-radius: 6px;
 	border: none;
+	background-color: #f2f1f3;
 }
 
 .form-heading{
@@ -172,9 +173,34 @@ body {
 	outline: none;
 }
 
-.input-box label{
-	position: relative;
+.input-box input:focus ~ label,
+.input-box input:valid ~ label{
+
+	color: #6563FF;
+	transform: translateX(20px) translateY(-10px);
+}
+
+.input-box .title-label{
+	position: absolute;
+	right: 177px;
+	top: 80px;
+	color: grey;
+	
+}
+
+.input-box .author-label{
+	position: absolute;
 	right: 160px;
+	top: 132px;
+	color: grey;
+	
+}
+.input-box .pages-label{
+	position: absolute;
+	right: 165px;
+	top: 185px;
+	color: grey;
+	
 }
 
 form .book-submit-button{
