@@ -167,8 +167,8 @@ body {
 
 /*Applies the rule when the button is being clicked*/
 .toggle-button:active{
-	transition: 0.2s ease;
-	transform: translateY(3px); /* Move the button down by 2 pixels when pressed */
+	transition: 0.3s ease;
+	transform: scale(0.9); /*Decreases the size on click*/
 }
 
 .reading-status-btn{
@@ -201,11 +201,15 @@ body {
 
 .trash-icon{
 	width: 30px;
-	transition: transform 0.3s ease; /*Adds a smooth transition effect*/
+	transition: transform 0.2s ease; /*Adds a smooth transition effect*/
 }
 
 .trash-icon:hover{
 	transform: scale(1.2); /*Increases the size on hover*/
+}
+
+.trash-icon:active {
+	transform: scale(1); /*Decreases the size on click*/
 }
 
 
@@ -234,7 +238,7 @@ body {
 }
 
 .dialog-box::backdrop{
-	background-color: rgb(37, 32, 37);
+	background-color: rgb(24, 21, 24);
 	opacity: 0.2;
 }
 
