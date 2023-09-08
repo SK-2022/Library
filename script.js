@@ -21,18 +21,22 @@ addBookButton.addEventListener('click', () => {
 })
 
 //Reading status btn toggle logic
-const readingStatusBtn = document.querySelector('.toggle-button')
+const readingStatusBtn = document.querySelectorAll('.toggle-button')
 
-let isToggled = false; // Initial state is "Not toggled"
+readingStatusBtn.forEach((button) => {
+    let isToggled = false; // Initial state is "Not toggled"
 
-readingStatusBtn.addEventListener('click', () => {
-    isToggled = !isToggled //Toggle the state making it true
-    readingStatusBtn.classList.toggle('reading-status-btn');
-    readingStatusBtn.classList.toggle('not-read');
+    button.addEventListener('click', () => {
 
-    if(isToggled){
-        readingStatusBtn.textContent = 'Not read'
-    } else{
-        readingStatusBtn.textContent = 'Read'
-    }
-    })
+        isToggled = !isToggled //Toggle the state making it true
+        button.classList.toggle('reading-status-btn');
+        button.classList.toggle('not-read');
+        
+        // Toggle the text based on the state
+        if(isToggled){
+            button.textContent = 'Not read'
+        } else{
+            button.textContent = 'Read'
+        }
+        })
+})

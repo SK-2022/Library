@@ -160,9 +160,15 @@ body {
 
 .book-card-btn-container{
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	gap: 10px;
 	padding-bottom: 10px;
+}
+
+/*Applies the rule when the button is being clicked*/
+.toggle-button:active{
+	transition: 0.2s ease;
+	transform: translateY(3px); /* Move the button down by 2 pixels when pressed */
 }
 
 .reading-status-btn{
