@@ -54,7 +54,7 @@ body {
 	background-color: #F0EEF1;
 	font-family: 'Roboto Flex', sans-serif;
 }
-
+/* Header styling starts here */
 .header-login{
 	display: flex;
 	justify-content: space-around;
@@ -94,7 +94,9 @@ body {
 .login-button:hover{
 	background-color: #d1d5db;
 }
+/* Header styling ends here */
 
+/* Add book button styling starts here */
 .button-container{
 	display: grid;
 	justify-content: center;
@@ -116,7 +118,9 @@ body {
 .add-book-button:hover{
 	background-color: #d1d5db;
 }
+/* Add book button styling ends here */
 
+/* Book card styling starts here */
 .book-card-parent-container{
 	display: flex;
 	justify-content: center;
@@ -136,8 +140,11 @@ body {
 	gap: 10px;
 	padding: 20px;
 	height: 300px;
+	border: 1px solid black;
 }
+/* Book card styling ends here */
 
+/* Form styling starts here */
 .book-form{
 	display: flex;
 	flex-direction: column;
@@ -146,10 +153,6 @@ body {
 	gap: 20px;
 	padding: 20px;
 }
-
-/* dialog.dialog-box{
-	display: none;
-} */
 
 .dialog-box{
 	position: fixed;
@@ -223,3 +226,4 @@ form .book-submit-button:hover{
 	background-color: #6d28d9;
 	color:#FFFFFF;
 }
+/* Form styling ends here */
