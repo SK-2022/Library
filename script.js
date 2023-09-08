@@ -19,3 +19,20 @@ const dialogBox = document.querySelector('.dialog-box');
 addBookButton.addEventListener('click', () => {
     dialogBox.showModal();
 })
+
+//Reading status btn toggle logic
+const readingStatusBtn = document.querySelector('.toggle-button')
+
+let isToggled = false; // Initial state is "Not toggled"
+
+readingStatusBtn.addEventListener('click', () => {
+    isToggled = !isToggled //Toggle the state making it true
+    readingStatusBtn.classList.toggle('reading-status-btn');
+    readingStatusBtn.classList.toggle('not-read');
+
+    if(isToggled){
+        readingStatusBtn.textContent = 'Not read'
+    } else{
+        readingStatusBtn.textContent = 'Read'
+    }
+    })

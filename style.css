@@ -139,7 +139,8 @@ body {
 	flex-direction: column;
 	gap: 10px;
 	padding: 20px;
-	height: 300px;
+	height: 250px;
+	width: 250px ;
 	border-radius: 10px;
 	box-shadow: 3px 5px 6px rgba(0, 0, 0, 0.1); /* Box shadow for the card */
 	background: #FFFBFB;
@@ -171,6 +172,25 @@ body {
 	background-color: #6563FF;
 	color: #FFFFFF;
 	font-family: 'Roboto Flex',Arial, Helvetica, sans-serif;
+	font-weight: 600;
+}
+
+.not-read{
+	width: 180px;
+	border: none;
+	border-radius: 6px;
+	font-family: 'Roboto Flex',Arial, Helvetica, sans-serif;
+	background-color: #e94040 ;
+	color: rgb(0, 0, 0);
+	font-weight: 600;
+}
+
+.not-read:hover{
+	background-color: #eb7a7a;
+}
+
+.reading-status-btn:hover{
+	background-color: #6d28d9 ;
 }
 
 .trash-icon{
