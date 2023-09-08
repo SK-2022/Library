@@ -155,7 +155,12 @@ body {
 	position: fixed;
 	border-radius: 6px;
 	border: none;
-	background-color: #f2f1f3;
+	background-color: #FFFFFF;
+}
+
+.dialog-box::backdrop{
+	background-color: rgb(37, 32, 37);
+	opacity: 0.2;
 }
 
 .form-heading{
@@ -172,35 +177,41 @@ body {
     font-size: 14px;
 	outline: none;
 }
+.input-box input:focus,
+.input-box input:valid {
+	border: 1px solid #6d28d9;
+}
 
 .input-box input:focus ~ label,
 .input-box input:valid ~ label{
 
-	color: #6563FF;
-	transform: translateX(20px) translateY(-10px);
+	color: #6d28d9;
+	transform: translateX(10px) translateY(-13px);
+	font-size: 0.8rem;
+	padding: 0 10px;
+	background: #FFFFFF;
+	border-left: 1px solid #6d28d9;
+	border-right: 1px solid #6d28d9;
+}
+
+.input-box label{
+	position: absolute;
+	transition: 0.3s;
+	color: rgb(182, 182, 182);
 }
 
 .input-box .title-label{
-	position: absolute;
 	right: 177px;
 	top: 80px;
-	color: grey;
-	
 }
 
 .input-box .author-label{
-	position: absolute;
 	right: 160px;
 	top: 132px;
-	color: grey;
-	
 }
 .input-box .pages-label{
-	position: absolute;
 	right: 165px;
 	top: 185px;
-	color: grey;
-	
 }
 
 form .book-submit-button{
