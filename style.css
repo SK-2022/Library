@@ -166,7 +166,7 @@ body {
 }
 
 /*Applies the rule when the button is being clicked*/
-.toggle-button:active{
+.toggle-button:active, .book-submit-button:active{
 	transition: 0.3s ease;
 	transform: scale(0.9); /*Decreases the size on click*/
 }

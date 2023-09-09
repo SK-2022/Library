@@ -20,7 +20,11 @@ readingStatusBtn.forEach((button) => {
         })
 })
 
-const myLibrary = ['Witcher','Deep Work','Pragmatic programmer'];
+// Remember, each element in your array is an object
+const myLibrary = [
+    {bookTitle: 'The Pragmatic programmer', author: 'Andy Hunt and Dave Thomas', pageNumbers: 352, status: 'read' }
+    //Insert more books here
+];
 
 //Constructor function for my books
 function Book(bookTitle, author, pageNumbers, status){
@@ -28,15 +32,17 @@ function Book(bookTitle, author, pageNumbers, status){
     this.author = author;
     this.pageNumbers = pageNumbers
     this.status = status
-
-
 }
-const bookTitle = document.querySelector('.title-label').textContent
-//Function to add books to the library.
 
-// function addBookToLibrary(){
 
-// }
+//Test Function for submit button to Add book to library
+const bookSubmitBtn = document.querySelector('.book-submit-button')
+ bookSubmitBtn.addEventListener('click', function addBookToLibrary(event) {
+    event.preventDefault(); //Prevent the default form submission behavior
+    const bookTitle = document.querySelector('.title-input')
+    const bookTitleInput = bookTitle.value
+    console.log(bookTitleInput)
+ })
 
 const addBookButton = document.querySelector('.add-book-button');
 const dialogBox = document.querySelector('.dialog-box');
