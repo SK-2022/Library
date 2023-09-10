@@ -36,7 +36,7 @@ function Book(bookTitle, author, pageNumbers, status){
 
 
 //Test Function for submit button to Add book to library
-const bookSubmitBtn = document.querySelector('.book-submit-button')
+   const bookSubmitBtn = document.querySelector('.book-submit-button')
  bookSubmitBtn.addEventListener('click', function addBookToLibrary(event) {
     event.preventDefault(); //Prevent the default form submission behavior
     const bookTitle = document.querySelector('.title-input')
