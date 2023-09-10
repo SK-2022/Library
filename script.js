@@ -36,12 +36,17 @@ function Book(bookTitle, author, pageNumbers, status){
 
 
 //Test Function for submit button to Add book to library
-   const bookSubmitBtn = document.querySelector('.book-submit-button')
- bookSubmitBtn.addEventListener('click', function addBookToLibrary(event) {
+   const bookSubmitBtn = document.querySelector('.book-form')
+ bookSubmitBtn.addEventListener('submit', function addBookToLibrary(event) {
     event.preventDefault(); //Prevent the default form submission behavior
-    const bookTitle = document.querySelector('.title-input')
-    const bookTitleInput = bookTitle.value
-    console.log(bookTitleInput)
+    //Selects all inputs from the dialog
+    const title = document.getElementById('title').value
+    const author = document.getElementById('author').value
+    const pages = document.getElementById('pages').value
+    const readingStatus = document.getElementById('reading-status').checked
+    //Creates new book object using my constructor function
+    let book = new Book(title, author, pages, readingStatus)
+    console.log(book)
  })
 
 const addBookButton = document.querySelector('.add-book-button');
