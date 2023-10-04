@@ -12,9 +12,12 @@ function Book(bookTitle, author, pageNumbers, readingStatus){
 //This adds the books to the page display
 function render() {
     let libraryContainerElement = document.querySelector('.book-card-container')
-    myLibrary.forEach((i) => {
+    //Line below refreshes the book card container and prevents duplication of books when rendered
+    libraryContainerElement.innerHTML = ""
+    for (let i = 0; i < myLibrary.length; i++){
         let book = myLibrary[i]
         let bookCardElement = document.createElement('div')
+        //This allows us to display the myLibrary elements onto the page.
         bookCardElement.innerHTML = 
         `<div class="book-card">
         <div class="book-title">${book.bookTitle}</div>
@@ -37,11 +40,10 @@ function render() {
         </div>
     </div>`
     libraryContainerElement.appendChild(bookCardElement)
-     })
-
+    }
 }
 
-//Add to library function
+//This function adds a book to the myLibrary array.
 function addBookToLibrary(){
      //Selects all inputs from the dialog
      const title = document.getElementById('title').value
@@ -52,6 +54,7 @@ function addBookToLibrary(){
      //Creates new book object using my constructor function
      let book = new Book(title, author, pages, readingStatus);
      myLibrary.push(book);
+     //Render function displays the items of the array to the html page
      render();
 }
 
