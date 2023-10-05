@@ -24,8 +24,8 @@ function render() {
         <div class="book-author">By ${book.author}</div>
         <div class="pages">Pages: ${book.pageNumbers}</div>
         <div class="book-card-btn-container">
-            <button class="toggle-button reading-status-btn">${book.readingStatus}</button>
-            <img class="trash-icon" src="/images/trash-icon.png" alt="Remove button trashcan">
+            <button class="toggle-button reading-status-btn" onclick ="toggleRead(${i})">${book.readingStatus ? "Read" : "Not Read"}</button>
+            <img class="trash-icon" onclick="removeBook(${i})" src="/images/trash-icon.png" alt="Remove button trashcan">
         </div>
         <div class="my-rating-container">
             <label for="my-rating" class="book-rating">My Rating:</label>
@@ -41,6 +41,14 @@ function render() {
     </div>`
     libraryContainerElement.appendChild(bookCardElement)
     }
+}
+
+//Removes a book based on its index position in the myLibrary array
+function removeBook(index) {
+    //Removes 1 element from the array at the specified index 
+    myLibrary.splice(index, 1)
+    //This displays the new myLibrary array on the page without the removed element.
+    render()
 }
 
 //This function adds a book to the myLibrary array.
@@ -96,21 +104,28 @@ const readingStatusBtn = document.querySelectorAll('.toggle-button')
 //         })
 // })
 
-//More Efficient
- Book.prototype.toggleRead = function (readingStatusBtn){
-    let isToggled = false; // Initial state is "Not toggled"
+//Makes the reading status read or not read (true or false)
+ Book.prototype.toggleRead = function (){
+    //Initial stated is not toggled. Toggles state making it true
+    this.readingStatus = !this.readingStatus
+}   
 
-    readingStatusBtn.addEventListener('click', () => {
-
-        isToggled = !isToggled //Toggle the state making it true
-        readingStatusBtn.classList.toggle('reading-status-btn');
-        readingStatusBtn.classList.toggle('not-read');
-        
-        // Toggle the text based on the state
-        if(isToggled){
-            readingStatusBtn.textContent = 'Not read'
-        } else{
-            readingStatusBtn.textContent = 'Read'
-        }
-        })
+//Calls the function on the book at a specific index
+function toggleRead(index) {
+    myLibrary[index].toggleRead()
+    render()
 }
+
+
+    // let isToggled = false; // Initial state is "Not toggled"
+
+    //     isToggled = !isToggled //Toggle the state making it true
+    //     readingStatusBtn.classList.toggle('reading-status-btn');
+    //     readingStatusBtn.classList.toggle('not-read');
+        
+    //     // Toggle the text based on the state
+    //     if(isToggled){
+    //         readingStatusBtn.textContent = 'Not read'
+    //     } else{
+    //         readingStatusBtn.textContent = 'Read'
+    //     }
