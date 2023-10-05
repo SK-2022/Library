@@ -24,7 +24,7 @@ function render() {
         <div class="book-author">By ${book.author}</div>
         <div class="pages">Pages: ${book.pageNumbers}</div>
         <div class="book-card-btn-container">
-            <button class="toggle-button reading-status-btn" onclick ="toggleRead(${i})">${book.readingStatus ? "Read" : "Not Read"}</button>
+            <button class="toggle-button reading-status-btn">${book.readingStatus ? "Read" : "Not Read"}</button>
             <img class="trash-icon" onclick="removeBook(${i})" src="/images/trash-icon.png" alt="Remove button trashcan">
         </div>
         <div class="my-rating-container">
@@ -68,10 +68,12 @@ function addBookToLibrary(){
 
 
    const bookSubmitBtn = document.querySelector('.book-form')
-   bookSubmitBtn.addEventListener('submit', function (event) {
-    event.preventDefault(); //Prevent the default form submission behavior
+   bookSubmitBtn.addEventListener('submit', function () {
     addBookToLibrary()
+    //Resets form after submission
+    bookSubmitBtn.reset()
  })
+
 
 const addBookButton = document.querySelector('.add-book-button');
 const dialogBox = document.querySelector('.dialog-box');
@@ -86,46 +88,32 @@ addBookButton.addEventListener('click', () => {
 const readingStatusBtn = document.querySelectorAll('.toggle-button')
 
 //This gets the job done but its inefficient. Use a prototype.
-// readingStatusBtn.forEach((button) => {
-//     let isToggled = false; // Initial state is "Not toggled"
+readingStatusBtn.forEach((button) => {
+    let isToggled = false; // Initial state is "Not toggled"
 
-//     button.addEventListener('click', () => {
+    button.addEventListener('click', () => {
 
-//         isToggled = !isToggled //Toggle the state making it true
-//         button.classList.toggle('reading-status-btn');
-//         button.classList.toggle('not-read');
+        isToggled = !isToggled //Toggle the state making it true
+        button.classList.toggle('reading-status-btn');
+        button.classList.toggle('not-read');
         
-//         // Toggle the text based on the state
-//         if(isToggled){
-//             button.textContent = 'Not read'
-//         } else{
-//             button.textContent = 'Read'
-//         }
-//         })
-// })
+        // Toggle the text based on the state
+        if(isToggled){
+            button.textContent = 'Not read'
+        } else{
+            button.textContent = 'Read'
+        }
+        })
+})
 
-//Makes the reading status read or not read (true or false)
- Book.prototype.toggleRead = function (){
-    //Initial stated is not toggled. Toggles state making it true
-    this.readingStatus = !this.readingStatus
-}   
+// //Makes the reading status read or not read (true or false)
+//  Book.prototype.toggleRead = function (){
+//     //Initial stated is not toggled. Toggles state making it true
+//     this.readingStatus = !this.readingStatus
+// }   
 
-//Calls the function on the book at a specific index
-function toggleRead(index) {
-    myLibrary[index].toggleRead()
-    render()
-}
-
-
-    // let isToggled = false; // Initial state is "Not toggled"
-
-    //     isToggled = !isToggled //Toggle the state making it true
-    //     readingStatusBtn.classList.toggle('reading-status-btn');
-    //     readingStatusBtn.classList.toggle('not-read');
-        
-    //     // Toggle the text based on the state
-    //     if(isToggled){
-    //         readingStatusBtn.textContent = 'Not read'
-    //     } else{
-    //         readingStatusBtn.textContent = 'Read'
-    //     }
+// //Calls the function on the book at a specific index
+// function toggleRead(index) {
+//     myLibrary[index].toggleRead()
+//     render()
+// }
