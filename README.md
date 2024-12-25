@@ -3,6 +3,12 @@ A library app showing you the books you have read and not read yet.
 
 This design is inspired by github user @https://github.com/michalosman's take on his library app on the Odin Project.
 
-This project represents a project that is crucial in my beginner learning. It will also serve as a point of referrence for card making in css.
+This project represents a project that is crucial in my beginner learning.
 
-I will return to this in late October
+Features coming in the next update
+
+-Ability to confirm deletion of book
+
+- Ability to log in and save the books you add.
+
+-Different color on the 'Not Read' Button
