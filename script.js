@@ -9,28 +9,6 @@ function Book(bookTitle, author, pageNumbers, readingStatus){
     this.readingStatus = readingStatus
 }
 
-//This adds the books to the page display
-// function render() {
-//     let libraryContainerElement = document.querySelector('.book-card-container')
-//     //Line below refreshes the book card container and prevents duplication of books when rendered
-//     libraryContainerElement.innerHTML = ""
-//     for (let i = 0; i < myLibrary.length; i++){
-//         let book = myLibrary[i]
-//         let bookCardElement = document.createElement('div')
-//         //This allows us to display the myLibrary elements onto the page.
-//         bookCardElement.innerHTML = 
-//         `<div class="book-card">
-//         <div class="book-title">${book.bookTitle}</div>
-//         <div class="book-author">By ${book.author}</div>
-//         <div class="pages">Pages: ${book.pageNumbers}</div>
-//         <div class="book-card-btn-container">
-//             <button class="toggle-button reading-status-btn" id="toggle-btn(${i})">${book.readingStatus ? "Read" : "Not Read"}</button>
-//             <img class="trash-icon" onclick="removeBook(${i})" src="/images/trash-icon.png" alt="Remove button trashcan">
-//         </div>
-//     </div>`;
-//     libraryContainerElement.appendChild(bookCardElement)
-//     }
-// }
 
 // Prototype method to update the button class and text based on reading status
 Book.prototype.updateButtonClass = function (buttonElement) {
@@ -45,12 +23,14 @@ Book.prototype.updateButtonClass = function (buttonElement) {
     }
 };
 
+
 //Calls the function on the book at a specific index
 function toggleRead(index) {
     const book = myLibrary[index];
     book.toggleRead(); // Toggle the reading status
     render(); //Re-render the books to update the display.
 }
+
 
 // Rendering books and attaching event listeners
 function render() {
@@ -83,6 +63,13 @@ function render() {
     });
 }
 
+
+//Adds a function to all books that toggles the reading status of the book to true or false
+Book.prototype.toggleRead = function () {
+    this.readingStatus = !this.readingStatus; // Toggle the readingStatus
+}
+
+
 //Removes a book based on its index position in the myLibrary array
 function removeBook(index) {
     //Removes 1 element from the array at the specified index 
@@ -106,9 +93,6 @@ function addBookToLibrary(){
      render();
 }
 
-Book.prototype.toggleRead = function () {
-    this.readingStatus = !this.readingStatus; // Toggle the readingStatus
-}
 
 
 //Book Submission button functionality
@@ -120,10 +104,11 @@ Book.prototype.toggleRead = function () {
  })
 
 
+//Add book button functionality
 const addBookButton = document.querySelector('.add-book-button');
 const dialogBox = document.querySelector('.dialog-box');
 
-//Add book button functionality
+
 addBookButton.addEventListener('click', () => {
     dialogBox.showModal();
 })
