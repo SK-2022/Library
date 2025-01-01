@@ -10,26 +10,77 @@ function Book(bookTitle, author, pageNumbers, readingStatus){
 }
 
 //This adds the books to the page display
-function render() {
-    let libraryContainerElement = document.querySelector('.book-card-container')
-    //Line below refreshes the book card container and prevents duplication of books when rendered
-    libraryContainerElement.innerHTML = ""
-    for (let i = 0; i < myLibrary.length; i++){
-        let book = myLibrary[i]
-        let bookCardElement = document.createElement('div')
-        //This allows us to display the myLibrary elements onto the page.
-        bookCardElement.innerHTML = 
-        `<div class="book-card">
-        <div class="book-title">${book.bookTitle}</div>
-        <div class="book-author">By ${book.author}</div>
-        <div class="pages">Pages: ${book.pageNumbers}</div>
-        <div class="book-card-btn-container">
-            <button class="toggle-button reading-status-btn" onclick="toggleRead(${i})">${book.readingStatus ? "Read" : "Not Read"}</button>
-            <img class="trash-icon" onclick="removeBook(${i})" src="/images/trash-icon.png" alt="Remove button trashcan">
-        </div>
-    </div>`
-    libraryContainerElement.appendChild(bookCardElement)
+// function render() {
+//     let libraryContainerElement = document.querySelector('.book-card-container')
+//     //Line below refreshes the book card container and prevents duplication of books when rendered
+//     libraryContainerElement.innerHTML = ""
+//     for (let i = 0; i < myLibrary.length; i++){
+//         let book = myLibrary[i]
+//         let bookCardElement = document.createElement('div')
+//         //This allows us to display the myLibrary elements onto the page.
+//         bookCardElement.innerHTML = 
+//         `<div class="book-card">
+//         <div class="book-title">${book.bookTitle}</div>
+//         <div class="book-author">By ${book.author}</div>
+//         <div class="pages">Pages: ${book.pageNumbers}</div>
+//         <div class="book-card-btn-container">
+//             <button class="toggle-button reading-status-btn" id="toggle-btn(${i})">${book.readingStatus ? "Read" : "Not Read"}</button>
+//             <img class="trash-icon" onclick="removeBook(${i})" src="/images/trash-icon.png" alt="Remove button trashcan">
+//         </div>
+//     </div>`;
+//     libraryContainerElement.appendChild(bookCardElement)
+//     }
+// }
+
+// Prototype method to update the button class and text based on reading status
+Book.prototype.updateButtonClass = function (buttonElement) {
+    if (this.readingStatus) {
+        buttonElement.textContent = "Read";
+        buttonElement.classList.add('reading-status-btn'); // Add 'reading-status-btn' class
+        buttonElement.classList.remove('not-read'); // Remove 'not-read' class
+    } else {
+        buttonElement.textContent = "Not Read";
+        buttonElement.classList.add('not-read'); // Add 'not-read' class
+        buttonElement.classList.remove('reading-status-btn'); // Remove 'reading-status-btn' class
     }
+};
+
+//Calls the function on the book at a specific index
+function toggleRead(index) {
+    const book = myLibrary[index];
+    book.toggleRead(); // Toggle the reading status
+    render(); //Re-render the books to update the display.
+}
+
+// Rendering books and attaching event listeners
+function render() {
+    let libraryContainerElement = document.querySelector('.book-card-container');
+    libraryContainerElement.innerHTML = ""; // Clear previous content
+
+    myLibrary.forEach((book, index) => {
+        const bookCardElement = document.createElement('div');
+        bookCardElement.innerHTML = `
+        <div class="book-card">
+            <div class="book-title">${book.bookTitle}</div>
+            <div class="book-author">By ${book.author}</div>
+            <div class="pages">Pages: ${book.pageNumbers}</div>
+            <div class="book-card-btn-container">
+                <button class="toggle-button" id="toggle-btn-${index}">${book.readingStatus ? "Read" : "Not Read"}</button>
+                <img class="trash-icon" onclick="removeBook(${index})" src="/images/trash-icon.png" alt="Remove button trashcan">
+            </div>
+        </div>`;
+        libraryContainerElement.appendChild(bookCardElement);
+
+        // Attach event listener to the toggle button
+        const toggleButton = document.getElementById(`toggle-btn-${index}`);
+        toggleButton.addEventListener('click', () => {
+            book.toggleRead(); // Toggle the reading status in the object
+            book.updateButtonClass(toggleButton); // Update the button's class and text
+        });
+
+        // Set the button's initial class and text
+        book.updateButtonClass(toggleButton);
+    });
 }
 
 //Removes a book based on its index position in the myLibrary array
@@ -49,13 +100,18 @@ function addBookToLibrary(){
      const readingStatus = document.getElementById('reading-status').checked
 
      //Creates new book object using my constructor function
-     let book = new Book(title, author, pages, readingStatus);
+     const book = new Book(title, author, pages, readingStatus);
      myLibrary.push(book);
      //Render function displays the items of the array to the html page
      render();
 }
 
+Book.prototype.toggleRead = function () {
+    this.readingStatus = !this.readingStatus; // Toggle the readingStatus
+}
 
+
+//Book Submission button functionality
    const bookSubmitBtn = document.querySelector('.book-form')
    bookSubmitBtn.addEventListener('submit', function () {
     addBookToLibrary()
@@ -67,42 +123,13 @@ function addBookToLibrary(){
 const addBookButton = document.querySelector('.add-book-button');
 const dialogBox = document.querySelector('.dialog-box');
 
-
+//Add book button functionality
 addBookButton.addEventListener('click', () => {
     dialogBox.showModal();
 })
 
 
-// Book Card Reading status btn toggle logic
-const readingStatusBtn = document.querySelectorAll('.toggle-button')
 
-//This gets the job done but its inefficient. Use a prototype.
-// readingStatusBtn.forEach((button) => {
-//     let isToggled = false; // Initial state is "Not toggled"
 
-//     button.addEventListener('click', () => {
 
-//         isToggled = !isToggled //Toggle the state making it true
-//         button.classList.toggle('reading-status-btn');
-//         button.classList.toggle('not-read');
-        
-//         // Toggle the text based on the state
-//         if(isToggled){
-//             button.textContent = 'Not read'
-//         } else{
-//             button.textContent = 'Read'
-//         }
-//         })
-// })
 
-//Makes the reading status read or not read (true or false)
- Book.prototype.toggleRead = function (){
-    //Initial stated is not toggled. Toggles state making it true
-    this.readingStatus = !this.readingStatus
-}   
-
-//Calls the function on the book at a specific index
-function toggleRead(index) {
-    myLibrary[index].toggleRead()
-    render()
-}
