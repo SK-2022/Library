@@ -10,5 +10,3 @@ Features coming in the next update
 -Ability to confirm deletion of book
 
 - Ability to log in and save the books you add.
-
--Different color on the 'Not Read' Button
