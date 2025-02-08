@@ -2,12 +2,23 @@
 const myLibrary = [];
 
 //Constructor function for my books
-function Book(bookTitle, author, pageNumbers, readingStatus){
-    this.bookTitle = bookTitle;
-    this.author = author;
-    this.pageNumbers = pageNumbers
-    this.readingStatus = readingStatus
+// function Book(bookTitle, author, pageNumbers, readingStatus){
+//     this.bookTitle = bookTitle;
+//     this.author = author;
+//     this.pageNumbers = pageNumbers
+//     this.readingStatus = readingStatus
+// }
+
+//Class for books instead of constructors
+class Book {
+    constructor(bookTitle, author, pageNumbers, readingStatus){
+        this.bookTitle = bookTitle;
+        this.author = author;
+        this.pageNumbers = pageNumbers
+        this.readingStatus = readingStatus
+    }
 }
+
 
 
 // Prototype method to update the button class and text based on reading status
